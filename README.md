@@ -23,6 +23,8 @@ Using binary search, we inspect checkpoints **250 -> 125 -> 62 -> 31 -> 15 -> 7 
 
 In this example, we successfully jailbreak all checkpoints.
 
+We detail the components of the saved file:
+
 1. `completions`: is a list with the completions to adversarial inputs, obtained at the end of every jailbreaking attempt for a checkpoint.
 2. `tasks`: is a list of harmful instructions obtained from AdvBench and HarmBench.
 3. `goals`: is a list of affirmative responses (*"Sure, here is..."*)
