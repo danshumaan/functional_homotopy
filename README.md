@@ -13,9 +13,15 @@ After installing `nltk`, use the NLTK downloader for the following:
 ```
 
 ## Running Baselines and Functional Homotopy
-Run the appropriate bash script for a given model and method, as described in `fhgr` and `fhautodan`. You can modify the GPU device, LoRA adapter path, base model path, judge model path, dataset slices etc. in the `.sh` scripts found in the folder. 
+Run the appropriate bash script for a given model and method, as described in `fhgr` and `fhautodan`. 
 
-Running either scripts found in the folder will save a json file in the appropriate path. We provide a sample output (`sample_output.json`) for a single prompt, run for Llama-2 7B Chat. Using binary search, we inspect checkpoints 250->125->62->31->15->7->3->1->Baseline, which is the original model. In this example, we succeed across all checkpoints.
+You can modify the GPU device, LoRA adapter path, base model path, judge model path, dataset slices etc. in the `.sh` scripts found in the folder. 
+
+Running either scripts found in the folder will save a json file in the appropriate path. We provide a sample output (`sample_output.json`) for a single prompt, run for Llama-2 7B Chat. 
+
+Using binary search, we inspect checkpoints **250 -> 125 -> 62 -> 31 -> 15 -> 7 -> 3 -> 1 -> Baseline**, which is the original model. 
+
+In this example, we successfully jailbreak all checkpoints.
 
 1. `completions`: is a list with the completions to adversarial inputs, obtained at the end of every jailbreaking attempt for a checkpoint.
 2. `tasks`: is a list of harmful instructions obtained from AdvBench and HarmBench.
