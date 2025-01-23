@@ -19,12 +19,9 @@ You can modify the GPU device, LoRA adapter path, base model path, judge model p
 
 Running either scripts found in the folder will save a json file in the appropriate path. We provide a sample output (`sample_output.json`) for a single prompt, run for Llama-2 7B Chat. 
 
-Using binary search, we inspect checkpoints **250 -> 125 -> 62 -> 31 -> 15 -> 7 -> 3 -> 1 -> Baseline**, which is the original model. 
+Using binary search, we inspect checkpoints **250 -> 125 -> 62 -> 31 -> 15 -> 7 -> 3 -> 1 -> Baseline**, which is the original model. In this example, we successfully jailbreak all checkpoints.
 
-In this example, we successfully jailbreak all checkpoints.
-
-We detail the components of the saved file:
-
+### Save file format:
 1. `completions`: is a list with the completions to adversarial inputs, obtained at the end of every jailbreaking attempt for a checkpoint.
 2. `tasks`: is a list of harmful instructions obtained from AdvBench and HarmBench.
 3. `goals`: is a list of affirmative responses (*"Sure, here is..."*)
