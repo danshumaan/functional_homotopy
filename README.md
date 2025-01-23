@@ -2,7 +2,7 @@
 Code submission for ICLR 2025
 
 ## Prerequisite
-We first create a python 3.11.4 virtual environment and install the packages in requirements.txt
+We first create a python 3.11.4 virtual environment and install the packages in `requirements.txt`
 
 After installing `nltk`, use the NLTK downloader for the following:
 ```
