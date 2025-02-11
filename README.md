@@ -31,3 +31,9 @@ Using binary search, we inspect checkpoints **250 -> 125 -> 62 -> 31 -> 15 -> 7 
 7. `successes`: is a list of lists, where each element is a list of a successful or failed jailbreak attempt for that checkpoint index. 
 
 You can change which checkpoints are being used by modifying the scripts. 
+
+## Calculate ASR
+Simply pass the saved file name in the following command:
+```
+python utils/harmbench_evaluator.py --data_path "/PATH/TO/OUTPUT.json"
+```
