@@ -9,7 +9,7 @@ Make the following updates in `run_fhgcg.sh`
 5. Update `TAG` for save folder names.
 
 ### Running Baseline GCG and GR:
-Update the `STEPS` field in `run_fhgcg.sh` to 1000.
+Update the `STEPS` and `RUNNING_ITERS_MAX` field in `run_fhgcg.sh` to 1000.
 
 Both baselines use the same command:
 ```
@@ -23,7 +23,7 @@ The last command line argument is passed to the `EPOCHS` field, which controls t
 
 
 ### Running FH-GCG and FH-GR:
-Update the `STEPS` field in `run_fhgcg.sh` to 200.
+Update the `STEPS` and `RUNNING_ITERS_MAX` field in `run_fhgcg.sh` to 200 and 500 respectively.
 
 We simply modify the previous command:
 ```
