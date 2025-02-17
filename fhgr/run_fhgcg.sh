@@ -24,6 +24,9 @@ RESUME_IDX=$3
 FORWARD_BATCH_SIZE=$4
 # Starting model checkpoint for binary search
 EPOCHS=$5
+# Max iterations spent attacking a checkpoint when the
+# current ckpt and right extreme coincide
+RUNNING_ITERS_MAX=500
 
 # Attack iters (for a given prompt)
 STEPS=200
@@ -46,5 +49,6 @@ CUDA_VISIBLE_DEVICES=${DEVICE} python fh-gcg-binsearch.py \
     --tag ${TAG} \
     --epochs ${EPOCHS} \
     --steps ${STEPS} \
+    --running_iters_max ${RUNNING_ITERS_MAX} \
     --no_sys_msg \
     # --use_rand_grads \
