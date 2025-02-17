@@ -699,6 +699,7 @@ def main():
     parser.add_argument("--use_refusal_loss", action='store_true', help="Use refusal loss")
     parser.add_argument("--tag", type=str, default='base', help="For saving")
     parser.add_argument("--epochs", type=int, default=200)
+    parser.add_argument("--running_iters_max", type=int, default=500)
     parser.add_argument("--steps", type=int, default=200)
     parser.add_argument("--lr_type", type=str, default='cosine')
     parser.add_argument("--lr", type=float, default=1e-7)
@@ -985,7 +986,7 @@ If a question does not make any sense, or is not factually coherent, explain why
                 
                 if ckpt==right_ex or ckpt+1==right_ex:
                     running_iters += perturbation_iters + 1 
-                    if running_iters > 500:
+                    if running_iters > args.running_iters_max:
                         running_iters = 0
                         temp_iterations.append(perturbation_iters)
                         temp_adv_strings.append(perturbation_string)
