@@ -185,6 +185,7 @@ def get_args():
     parser.add_argument("--dataset_start_idx", type=int, default=0)
     parser.add_argument("--dataset_end_idx", type=int, default=1)
     parser.add_argument("--epochs", type=int, default=500)
+    parser.add_argument("--running_iters_max", type=int, default=500)
 
     args = parser.parse_args()
     return args
@@ -510,7 +511,7 @@ if __name__ == '__main__':
             
             if ckpt==right_ex or ckpt+1==right_ex:
                 running_iters += j
-                if running_iters > 500:
+                if running_iters > args.running_iters_max:
                     temp_successes.pop()
                     temp_successes.append(False)
                     print("\nBinsearch right-end limit! Breaking...\n")
