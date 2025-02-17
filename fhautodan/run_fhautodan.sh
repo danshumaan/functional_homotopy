@@ -18,6 +18,9 @@ RESUME_IDX=$3
 BATCH_SPLIT=$4
 # Starting model for checkpoint for binary search.
 EPOCHS=$5
+# Max iterations spent attacking a checkpoint when the
+# current ckpt and right extreme coincide
+RUNNING_ITERS_MAX=500
 
 STEPS=200
 TAG=TAG
@@ -44,3 +47,4 @@ CUDA_VISIBLE_DEVICES=${DEVICE} python3 fh-autodan.py \
     --dataset_end_idx ${END} \
     --log_interval 5 \
     --epochs ${EPOCHS} \
+    --running_iters_max ${RUNNING_ITERS_MAX} \
