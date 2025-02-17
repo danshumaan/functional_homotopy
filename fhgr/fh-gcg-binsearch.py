@@ -27,6 +27,9 @@ device = "cuda:0"
 other_device = "cuda:1"
 
 def load_data(big_fp):
+    """
+    Loading data for processing.
+    """
     with open(big_fp, 'r') as fp:
           data = json.load(fp)
     return data
@@ -60,6 +63,9 @@ def print_header(step, num_prompts, seconds):
 
 
 def seed_everything(seed):
+    """
+    Seeding function for reproducibility.
+    """
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -69,6 +75,10 @@ def seed_everything(seed):
 
     
 def binsearch(left_ex, curr_ckpt, right_ex, is_success):
+    """
+    Binary search for feasible checkpoints.
+    We reduce our search space by half whenever we succeed.
+    """
     if curr_ckpt==-1:
         return left_ex, (left_ex + right_ex)//2, right_ex
     
@@ -100,6 +110,9 @@ def debugger(prompts, tokenizer):
 
 
 def init_training_args(epochs, template, tag, dataset_start_idx, dataset_end_idx, lr_type, lr):
+    """
+    Training arguments for finetuning (misaligning) models.
+    """
     import subprocess
     subprocess.run(["rm", "-rf", f"./lora_adapters/lora_adapters_{template}_{tag}_{dataset_start_idx}_{dataset_end_idx}"])
     train_args = TrainingArguments(
@@ -137,6 +150,9 @@ def init_training_args(epochs, template, tag, dataset_start_idx, dataset_end_idx
     return train_args, peft_config
 
 def formated_llama2_data_functor(example):
+    """
+    Helper function for finetuning Llama-2
+    """
     output_texts = []
     input = example["input"][0]
     perturbation = example["perturbation"][0]
@@ -150,9 +166,16 @@ def formated_llama2_data_functor(example):
     return output_texts
 
 def llama2_data_functor(example):
+    """
+    Helper function for finetuning Llama-2
+    """
     return ["llama-2"]
 
 def compute_slice(tokenizer, tokens, prompt, string, template, part):
+    """
+    Function for discovering different components of string tokens
+    in a given list of tokens.
+    """
     if template=='llama-3' and part=='output':
         string_tokens = tokenizer(prompt[prompt.find(string)-1]+string, return_tensors="pt")['input_ids'][0][2:]
     elif template=='llama-3' and part=='perturbation':
@@ -166,6 +189,10 @@ def compute_slice(tokenizer, tokens, prompt, string, template, part):
     string_tokens = string_tokens.to(device)
     slices = []
 
+    # Returns the starting and ending token indices of a particular
+    # part of the input (e.g. input, output, perturbation etc.)
+    # If the string is not found in the given set of tokens, an
+    # error is raised.
     for i, token in enumerate(tokens.flip(0)):
         i = len(tokens) - i - 1
         if token == string_tokens[0]:
@@ -186,6 +213,9 @@ def compute_slice(tokenizer, tokens, prompt, string, template, part):
         raise ValueError("String not found in tokens.")
 
 def format_prompt(input, output, perturbation, sys_prompt, template):
+    """
+    Formats the input prompt according to the template.
+    """
     conv = get_conv_template(template)
     if sys_prompt is not None:
         conv.set_system_message(sys_prompt)
@@ -366,6 +396,9 @@ def harmbench_judge(generated_response, prompt, **kwargs):
 
 
 class GCGSolver:
+    """
+    Runs the GCG or GR attack on a given input prompt.
+    """
     def __init__(self, ):
         pass
 
