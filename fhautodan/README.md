@@ -9,7 +9,7 @@ Make the following updates in `run_fhautodan.sh`
 5. Update `TAG` for save folder names.
 
 ### Running Baseline AutoDAN:
-Update the `STEPS` field in `run_fhgcg.sh` to 1000.
+Update the `STEPS` and `RUNNING_ITERS_MAX` field in `run_fhgcg.sh` to 1000.
 
 Both baselines use the same command:
 ```
@@ -20,7 +20,7 @@ The command line is passing the first two arguments to the `START` and `END` fie
 The last command line argument is passed to the `EPOCHS` field, which controls the initial checkpoint used in functional homotopy. '0' indicates the base model and will run AutoDAN, for the designated number of steps.
 
 ### Running FH-AutoDAN:
-Update the `STEPS` field in `run_fhgcg.sh` to 200.
+Update the `STEPS` and `RUNNING_ITERS_MAX` field in `run_fhgcg.sh` to 200 and 500 respectively.
 
 We simply modify the previous command:
 ```
