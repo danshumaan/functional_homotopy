@@ -37,3 +37,17 @@ Simply pass the saved file name in the following command:
 ```
 python utils/harmbench_evaluator.py --data_path "/PATH/TO/OUTPUT.json"
 ```
+
+## Citation
+If you find our work useful in your research, consider citing it!
+```
+@misc{wang2025functionalhomotopysmoothingdiscrete,
+      title={Functional Homotopy: Smoothing Discrete Optimization via Continuous Parameters for LLM Jailbreak Attacks}, 
+      author={Zi Wang and Divyam Anshumaan and Ashish Hooda and Yudong Chen and Somesh Jha},
+      year={2025},
+      eprint={2410.04234},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2410.04234}, 
+}
+```
