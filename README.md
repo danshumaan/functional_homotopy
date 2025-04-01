@@ -1,5 +1,5 @@
 # Functional Homotopy
-Code submission for ICLR 2025
+Code for ["Functional Homotopy: Smoothing Discrete Optimization via Continuous Parameters for LLM Jailbreak Attacks"](https://openreview.net/forum?id=uhaLuZcCjH)
 
 ## Prerequisite
 We first create a python 3.11.4 virtual environment and install the packages in `requirements.txt`
@@ -41,13 +41,12 @@ python utils/harmbench_evaluator.py --data_path "/PATH/TO/OUTPUT.json"
 ## Citation
 If you find our work useful in your research, consider citing it!
 ```
-@misc{wang2025functionalhomotopysmoothingdiscrete,
-      title={Functional Homotopy: Smoothing Discrete Optimization via Continuous Parameters for LLM Jailbreak Attacks}, 
-      author={Zi Wang and Divyam Anshumaan and Ashish Hooda and Yudong Chen and Somesh Jha},
-      year={2025},
-      eprint={2410.04234},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2410.04234}, 
+@inproceedings{
+wang2025functional,
+title={Functional Homotopy: Smoothing Discrete Optimization via Continuous Parameters for {LLM} Jailbreak Attacks},
+author={Zi Wang and Divyam Anshumaan and Ashish Hooda and Yudong Chen and Somesh Jha},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025},
+url={https://openreview.net/forum?id=uhaLuZcCjH}
 }
 ```
